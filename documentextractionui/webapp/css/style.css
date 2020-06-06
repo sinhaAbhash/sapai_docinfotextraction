@@ -1,0 +1,348 @@
+        .exampleDiv {}
+        
+        .item.cover.blue-color {
+            background-color: #007db8;
+            color: #fff;
+        }
+        
+        .item.cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+        
+        .resourceCenter .link-wrapper:hover {
+            text-decoration: inherit;
+        }
+        
+        .resourceCenter .rc-item {
+            height: 343px;
+            box-shadow: 0 0 20px 5px rgba(198, 198, 198, 0.2);
+            position: relative;
+            z-index: 1;
+            transition: all .2s ease-in-out;
+            transition-delay: .1s;
+        }
+        
+        .headerToolbarClass {
+            background: #354a5f !important;
+        }
+        
+        .docxHeaderClass {
+            padding-left: 1rem !important;
+            padding-top: 0.7rem !important;
+        }
+        
+        .toolbarTextClass {
+            /*font-size: 24px;*/
+            font-size: .875rem;
+            line-height: 1.42857;
+            color: #32363a;
+            font-size: 16px;
+            line-height: 1.25;
+            font-weight: 400;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #fff;
+            color: #fff !important;
+            padding-bottom: 1rem;
+        }
+        
+        .toolbarImageClass {
+            /*padding-top: 2.5rem !important;*/
+        }
+        
+        .backImgClass {
+            /*padding-bottom: 1rem !important;*/
+        }
+        
+        .tileClass {
+            background-color: #007db8;
+            /*color: #fff;*/
+            /*margin: 1rem;*/
+            margin-left: 4rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .sapMGTHdrTxt>.sapMText {
+            font-weight: normal;
+            font-family: "72", "72full", Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        .sapMGTSubHdrTxt>.sapMText,
+        .sapMGTSubHdrTxt {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-family: "72", "72full", Arial, Helvetica, sans-serif;
+            font-size: .875rem;
+            font-weight: normal;
+            color: #fff;
+        }
+        
+        .tileContentClass {
+            color: #fff;
+        }
+        
+        .tileImageClass {
+            padding-right: 1rem;
+        }
+        
+        .tileHboxClass {
+            margin-top: 1rem;
+        }
+        
+        .tileFooterClass {
+            font-size: 1rem;
+        }
+        
+        .tileText {
+            color: #fff;
+            font-weight: normal;
+            font-size: .76923077rem;
+            line-height: 1.5;
+        }
+        
+        html.sap-desktop .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
+            background: #007db8;
+        }
+        
+        .pageClass {
+            background: #fff;
+        }
+        
+        .headerVboxClass {
+            margin-top: 4.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .demoDescriptionClass {
+            margin-top: 3rem;
+        }
+        
+        .demoDesContentClass {
+            padding-left: 1rem !important;
+        }
+        
+        .viewGridClass {
+            margin-top: 1rem;
+            margin-bottom: 2.75rem;
+        }
+        
+        .headerTextClass {
+            font-size: 2.86rem;
+            font-weight: 400;
+            text-transform: initial;
+            line-height: 1.2;
+        }
+        
+        .headerSubtitleClass {
+            line-height: 1.5;
+            font-size: 1rem;
+            color: #3c3c3c;
+            font-weight: normal;
+            /*margin-top: .75rem;*/
+        }
+        
+        .radialhboxClass {
+            margin-top: 4rem !important;
+            /*margin-left: 4rem !important;*/
+        }
+        
+        .darvalhboxItemsClass {
+            padding-left: 0rem !important;
+            border-radius: 1rem !important;
+        }
+        
+        .darVBoxClass {
+            padding-left: 1rem !important;
+        }
+        
+        .vl {
+            border-left: 6px solid !important;
+            height: 100px !important;
+        }
+        
+        .itemTextClass {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+            margin-top: 1rem !important;
+            margin-left: 1rem !important;
+        }
+        
+        .listTitleTextClass {
+            font-weight: 700 !important;
+            margin-left: 1rem !important;
+        }
+        
+        .diePanelTitleClass {
+            /*font-size: .875rem;*/
+            /*font-size: var(--sapFontSize, .875rem);*/
+            /*line-height: 1.42857;*/
+            /*color: #32363a;*/
+            /*color: var(--sapTextColor, #32363a);*/
+            /*font-family: "72", "72full", Arial, Helvetica, sans-serif;*/
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+            /*-webkit-font-smoothing: antialiased;*/
+            /*-webkit-box-sizing: border-box;*/
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            font-size: 24px !important;
+            line-height: 1.33333;
+            font-weight: 400;
+            color: #51555a;
+            padding-left: 1rem !important;
+            /*color: var(--fd-section-title-color, #51555a);*/
+            /*-webkit-box-flex: 1;*/
+            /*-ms-flex: 1;*/
+            /*flex: 1;*/
+            /*margin-bottom: 0;*/
+        }
+        
+        .diePanelTextClass {
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif) !important;
+            font-size: 16px !important;
+            line-height: 1.25 !important;
+            font-weight: 400 !important;
+        }
+        
+        .dieUploadBarClass {
+            height: 5rem !important;
+            background-color: #FAFAFA !important;
+            width: 95% !important;
+            margin-left: 32px !important;
+        }
+        
+        .dieContentPaddingLeftClass {
+            padding-left: 1rem !important;
+        }
+        
+        .dieContentPaddingTopClass {
+            padding-top: 1rem !important;
+        }
+        
+        .dieTableClass {
+            margin-left: 2rem !important;
+            margin-bottom: 2rem !important;
+            margin-top: 3rem !important;
+        }
+        
+        .sapMTBStandard {
+            border-bottom: solid 0rem;
+        }
+        
+        .sapMPanelContent:not(.sapMPanelBGTransparent) {
+            border-bottom: 0rem;
+        }
+        
+        .fd-asset-upload__text {
+            font-size: var(--sapFontSize, .875rem);
+            line-height: 1.42857;
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            display: block;
+            color: var(--fd-color-action-1, #0a6ed1);
+            margin-bottom: 2px;
+        }
+        
+        .fd-asset-upload__message {
+            font-size: var(--sapFontSize, .875rem);
+            line-height: 1.42857;
+            color: var(--sapTextColor, #32363a);
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        
+        .fd-asset-upload__input+.fd-asset-upload__label {
+            font-size: var(--sapFontSize, .875rem);
+            line-height: 1.42857;
+            color: var(--sapTextColor, #32363a);
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            margin: 0;
+            background-color: var(--fd-color-neutral-1, #fafafa);
+            border: 1px dashed var(--fd-color-neutral-4, #89919a);
+            text-align: center;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+        }
+        
+        .fd-asset-upload__input {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            font-size: var(--sapFontSize, .875rem);
+            line-height: 1.42857;
+            color: var(--sapTextColor, #32363a);
+        }
+        
+        .pdfdownlodercss {
+            margin: 3% 0 0 1%;
+            padding-bottom: 3%;
+        }
+        
+        .fd-asset-upload {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 8px;
+            border: 0;
+            font-size: 14px;
+            line-height: 1.42857;
+            font-weight: 400;
+            font-family: var(--sapFontFamily, "72", "72full", Arial, Helvetica, sans-serif);
+            -webkit-font-smoothing: antialiased;
+            width: 79rem;
+        }
+        
+        .darVboxClass {
+            background: #F9F9F9 !important;
+        }
+        
+        .darLinkClass {
+            margin-left: 1rem !important;
+        }
+        
+        .submitBtnClass {
+            /*width: 15rem;*/
+            margin-top: 1rem !important;
+        }
+        
+        .docinfoTextClass {
+            font-size: 16px !important;
+            line-height: 1.25 !important;
+            font-weight: 400 !important;
+        }
+        
+        .footerbar {
+            height: 4rem !important;
+            /*background-color: rgba(44, 56, 67, 1) !important;*/
+            background-color: #fff !important;
+        }

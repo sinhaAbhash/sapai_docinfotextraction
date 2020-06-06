@@ -1,0 +1,18 @@
+{
+	"welcomeFile": "/documentextractionui/index.html",
+	"authenticationMethod": "route",
+	"logout": {
+		"logoutEndpoint": "/do/logout"
+	},
+	"routes": [{
+		"source": "^/destinations/DOCX_APP/(.*)$",
+		"target": "$1",
+		"authenticationType": "none",
+		"destination": "DOCX_APP",
+		"csrfProtection": false
+	}, {
+		"source": "^/documentextractionui/(.*)$",
+		"target": "$1",
+		"localDir": "webapp"
+	}]
+}

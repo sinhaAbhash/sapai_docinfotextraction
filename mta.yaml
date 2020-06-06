@@ -1,0 +1,28 @@
+ID: sapai_docinfotextraction
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: documentextractionui
+   type: html5
+   path: documentextractionui
+   parameters:
+      disk-quota: 512M
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_sapai_docinfotextraction
+    - name: dest_bsdemo
+
+resources:
+ - name: uaa_sapai_docinfotextraction
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+   type: org.cloudfoundry.managed-service
+
+ - name: dest_bsdemo
+   type: org.cloudfoundry.existing-service
+

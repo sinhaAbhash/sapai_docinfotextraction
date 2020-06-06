@@ -1,0 +1,126 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.solex.documentextractionui.controller.dox"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:uxap="sap.uxap" xmlns:f="sap.f" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:t="sap.ui.table" xmlns:customdata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiSizeCompact">
+	<Page id="sideContentContainer" showNavButton="false">
+		<customHeader>
+			<Toolbar height="4rem" class="headerToolbarClass">
+				<Image class="backImgClass" src="./images/backIcon.png" height="2rem" press="navToHome"/>
+				<Image src="./images/SAP_Logo.png" height="2rem"/>
+				<Label text="Document Information Extraction" class="toolbarTextClass"/>
+				<ToolbarSpacer/>
+				<Image class="toolbarImageClass" src="./images/solexLogo.png" height="1rem"/>
+			</Toolbar>
+		</customHeader>
+		<l:DynamicSideContent id="DynamicSideContent" class="sapUiDSCExplored sapUiContentPadding headerVboxClass" containerQuery="true"
+			sideContentFallDown="BelowM" breakpointChanged="handleBreakpointChangeEvent">
+			<uxap:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false"
+				preserveHeaderStateOnScroll="false" headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageDynamicHeaderTitle>
+						<uxap:expandedHeading>
+							<Title text="{data>/context/fileName}" wrapping="true" class="sapUiSmallMarginEnd"/>
+						</uxap:expandedHeading>
+						<uxap:snappedHeading>
+							<FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+								<FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+									<Title text="{data>/context/fileName}" wrapping="true" class="sapUiTinyMarginEnd"/>
+								</FlexBox>
+							</FlexBox>
+						</uxap:snappedHeading>
+						<uxap:actions>
+							<Button press="onExtractionDetails" text="Extraction Results" type="Transparent" visible="{= ${document>/status} === 'DONE' }"/>
+						</uxap:actions>
+					</uxap:ObjectPageDynamicHeaderTitle>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+						<f:Avatar src="sap-icon://pdf-attachment" displayShape="Circle" displaySize="M" class="sapUiSmallMarginEnd sapUiTinyMarginTop"/>
+						<VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+							<ObjectStatus title="Document type" text="{data>/context/documentType}"/>
+							<ObjectStatus title="Upload date" text="{path:'data>/context/created'}"/>
+						</VBox>
+						<VBox justifyContent="Center" class="sapUiSmallMarginEnd"></VBox>
+						<VBox class="sapUiMediumMarginEnd sapUiSmallMarginTop">
+							<ObjectAttribute title="Status"/>
+							<ObjectStatus class="sapMObjectStatusLarge" text="{path: 'data>/context/status'}" state="Success"/>
+						</VBox>
+					</FlexBox>
+				</uxap:headerContent>
+				<uxap:sections>
+					<uxap:ObjectPageSection title="Preview" showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<FlexBox width="100%" id="previewSection" direction="Column" height="100%" justifyContent="Center">
+									<items>
+										<FlexBox direction="Column" renderType="Div" class="sapUiSmallMargin">
+											<Image id="pdfimage" height="100%" width="100%"/>
+										</FlexBox>
+									</items>
+								</FlexBox>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+			<l:sideContent>
+				<Page showHeader="false">
+					<content>
+						<Panel width="auto" height="100%">
+							<List headerText="Header Information" items="{data>/context/extraction/headerFields}">
+								<items>
+									<CustomListItem>
+										<HBox justifyContent="SpaceBetween">
+											<Text class="docxHeaderClass" text="{path:'data>name'}"/>
+											<Input value="{data>value}"/>
+										</HBox>
+									</CustomListItem>
+								</items>
+							</List>
+							<t:TreeTable rows="{ path: 'data>/context/extraction/lineItems', parameters: {arrayNames:['lineItems']} }" id="LineItemList"
+								selectionMode="None" enableSelectAll="false" visibleRowCountMode="Fixed" visibleRowCount="12" cellClick="onLineItemTableCellClick"
+								ariaLabelledBy="title" class="sapUiMediumMarginTop">
+								<t:extension>
+									<OverflowToolbar>
+										<Title id="titletreetable" text="Line items"/>
+										<ToolbarSpacer/>
+										<Button text="Collapse all" press="onCollapseAll"/>
+										<Button text="Expand all" press="onExpandAll"/>
+									</OverflowToolbar>
+								</t:extension>
+								<t:rowSettingsTemplate>
+									<t:RowSettings class="line-item-column-label"/>
+								</t:rowSettingsTemplate>
+								<t:columns>
+									<t:Column>
+										<Label text="Label"/>
+										<t:template>
+											<Text text="{path:'data>name'}" wrapping="false"/>
+										</t:template>
+									</t:Column>
+									<t:Column>
+										<Label text="Value"/>
+										<t:template>
+											<l:HorizontalLayout visible="{= typeof ${data>value} !== 'undefined'}">
+												<Input value="{data>value}" visible="{= ${data>type} !== 'date'}" width="100%"
+													type="{= ${data>type} === 'number' || ${data>type} === 'integer' ? 'Number' : 'Text' }" editable="false"></Input>
+												<DatePicker value="{data>value}" visible="{= ${data>type} === 'date'}" width="100%" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"
+													editable="false"></DatePicker>
+											</l:HorizontalLayout>
+										</t:template>
+									</t:Column>
+								</t:columns>
+							</t:TreeTable>
+						</Panel>
+					</content>
+				</Page>
+			</l:sideContent>
+		</l:DynamicSideContent>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Update" press="updateDoc"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

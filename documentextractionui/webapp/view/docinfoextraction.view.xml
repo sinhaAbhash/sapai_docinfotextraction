@@ -1,0 +1,79 @@
+<mvc:View controllerName="com.solex.documentextractionui.controller.docinfoextraction" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:micro="sap.suite.ui.microchart" xmlns:u="sap.ui.unified" class="sapUiSizeCompact">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="pageId" class="pageClass">
+					<customHeader>
+						<Toolbar height="4rem" class="headerToolbarClass">
+							<Image class="backImgClass" src="./images/backIcon.png" height="2rem" press="navToHome"/>
+							<Image src="./images/SAP_Logo.png" height="2rem"/>
+							<Label text="Document Information Extraction" class="toolbarTextClass"/>
+							<ToolbarSpacer/>
+							<Image class="toolbarImageClass" src="./images/solexLogo.png" height="1rem"/>
+						</Toolbar>
+					</customHeader>
+					<content>
+						<Panel width="auto" class="demoDescriptionClass">
+							<headerToolbar>
+								<OverflowToolbar height="3rem">
+									<Title text="Demo Description" class="diePanelTitleClass"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<l:VerticalLayout class="demoDesContentClass">
+									<FormattedText htmlText="{panelModel>/HTML}"/>
+								</l:VerticalLayout>
+							</content>
+						</Panel>
+						<HBox class="dieContentPaddingLeftClass dieContentPaddingTopClass dieContentPaddingTopClass" alignItems="Center">
+							<Label class="dieContentPaddingLeftClass" design="Bold" text="Sample Invoices for Testing: "/>
+							<Link text="Sample Invoice 1 " href="./model/Sample_Invoice.pdf" target="_blank"/>
+							<Label class="dieContentPaddingLeftClass" text=" and "/>
+							<Link class="dieContentPaddingLeftClass"
+								href="https://doxapi-app-fearless-kob-xi.cfapps.jp10.hana.ondemand.com/static/tmp/sample-invoice-2.pdf" target="_blank"
+								text=" Sample Invoice 2"/>
+						</HBox>
+						<l:VerticalLayout>
+							<l:content>
+								<core:HTML
+									content='&lt;div class=&quot;fd-asset-upload&quot;&gt; &lt;input type=&quot;file&quot; name=&quot;file&quot; id=&quot;asset-upload&quot; class=&quot;fd-asset-upload__input&quot;&gt; &lt;label for=&quot;asset-upload&quot; class=&quot;fd-asset-upload__label&quot;&gt; &lt;span class=&quot;fd-asset-upload__text&quot;&gt;Upload PDF document&lt;/span&gt; &lt;span class=&quot;fd-asset-upload__message&quot;&gt;Maximum file size is 5MB&lt;/span&gt; &lt;label&gt;&lt;div id=&quot;byte_content&quot;&gt;&lt;/div&gt;&lt;/div&gt;'></core:HTML>
+							</l:content>
+						</l:VerticalLayout>
+						<Table id="doctable" width="95%" class="dieTableClass" items="{docExtractionModel>/results}" inset="false" mode="Delete"
+							alternateRowColors="true" delete="deleteDoc">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Label class="" design="Bold" text="Uploaded Documents:"/>
+									<ToolbarSpacer/>
+									<SearchField width="30%" search="searchTable"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="40%">
+									<Text text="ID"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="Filename"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+									<Text text="Status"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Link press="gotoDocX" text="{docExtractionModel>id}"/>
+										<Text text="{docExtractionModel>fileName}"/>
+										<Text text="{docExtractionModel>status}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
