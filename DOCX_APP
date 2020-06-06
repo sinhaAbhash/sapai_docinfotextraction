@@ -1,0 +1,12 @@
+#clientSecret=<< Existing password/certificate removed on export >>
+#
+#Fri Jun 05 10:09:29 UTC 2020
+Description=Intellligence Apps
+Type=HTTP
+clientId=sb-734c5fdb-3204-4452-b109-503ccfd691d6\!b17636|na-f20548c0-157d-417b-8bbb-1c9f35ecfb2d\!b20821
+Authentication=OAuth2ClientCredentials
+Name=DOCX_APP
+WebIDEEnabled=true
+tokenServiceURL=https\://sdcplatformnextgencf.authentication.eu10.hana.ondemand.com/oauth/token
+URL=https\://aiservices-dox.cfapps.eu10.hana.ondemand.com/document-information-extraction/v1
+ProxyType=Internet
